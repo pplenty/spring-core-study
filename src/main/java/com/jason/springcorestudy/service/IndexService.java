@@ -20,6 +20,7 @@ public class IndexService {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+        System.out.println("service finish");
 
         return new AsyncResult<>("result");
     }

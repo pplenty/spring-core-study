@@ -26,7 +26,8 @@ public class IndexController {
     public String index() throws ExecutionException, InterruptedException {
 
         ListenableFuture<String> future = indexService.service();
-        String result = future.get();
+//        String result = future.get();
+        String result = "future";
 
         return result;
     }
