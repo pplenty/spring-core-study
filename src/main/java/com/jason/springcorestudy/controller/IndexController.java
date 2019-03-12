@@ -1,7 +1,12 @@
 package com.jason.springcorestudy.controller;
 
+import com.jason.springcorestudy.service.IndexService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.util.concurrent.ListenableFuture;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.concurrent.ExecutionException;
 
 /**
  * @author : yusik
@@ -10,8 +15,19 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class IndexController {
 
+    private final IndexService indexService;
+
+    @Autowired
+    public IndexController(IndexService indexService) {
+        this.indexService = indexService;
+    }
+
     @GetMapping("/")
-    public String index() {
-        return "hello";
+    public String index() throws ExecutionException, InterruptedException {
+
+        ListenableFuture<String> future = indexService.service();
+        String result = future.get();
+
+        return result;
     }
 }
