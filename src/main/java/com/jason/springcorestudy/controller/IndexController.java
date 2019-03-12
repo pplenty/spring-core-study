@@ -6,6 +6,7 @@ import org.springframework.util.concurrent.ListenableFuture;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutionException;
 
 /**
@@ -17,18 +18,23 @@ public class IndexController {
 
     private final IndexService indexService;
 
-    @Autowired
     public IndexController(IndexService indexService) {
         this.indexService = indexService;
     }
 
     @GetMapping("/")
-    public String index() throws ExecutionException, InterruptedException {
+    String index() throws ExecutionException, InterruptedException {
 
         ListenableFuture<String> future = indexService.service();
 //        String result = future.get();
         String result = "future";
 
         return result;
+    }
+
+    @GetMapping("/callable")
+    Callable<String> callable() {
+
+        return () -> "callable";
     }
 }
