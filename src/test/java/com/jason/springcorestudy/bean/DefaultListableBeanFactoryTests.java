@@ -20,6 +20,11 @@ public class DefaultListableBeanFactoryTests {
 
     @Test
     public void 빈_정의_등록_테스트() {
+        dlbf.registerBeanDefinition("avante", new RootBeanDefinition(Avante.class, () -> {
+            Avante car = new Avante();
+            car.setName("my car");
+            return car;
+        }));
         dlbf.registerBeanDefinition("avante", new RootBeanDefinition(Avante.class));
         assertEquals(dlbf.getBeanDefinitionCount(), 1);
         assertEquals(dlbf.getBeanDefinitionNames().length, 1);
