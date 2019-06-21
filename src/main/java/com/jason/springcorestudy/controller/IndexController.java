@@ -18,7 +18,6 @@ import java.util.stream.Stream;
  * @date : 2019-03-12
  */
 @RestController
-@ControllerAdvice
 public class IndexController {
 
     private final IndexService indexService;
