@@ -1,12 +1,16 @@
 package com.jason.springcorestudy.controller;
 
 import com.jason.springcorestudy.service.IndexService;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.jason.springcorestudy.supports.KeywordValidator;
+import com.jason.springcorestudy.supports.IndexParameters;
 import org.springframework.util.concurrent.ListenableFuture;
-import org.springframework.web.bind.annotation.ControllerAdvice;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.validation.Valid;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.Callable;
@@ -21,9 +25,17 @@ import java.util.stream.Stream;
 public class IndexController {
 
     private final IndexService indexService;
+    private final KeywordValidator keywordValidator;
 
-    public IndexController(IndexService indexService) {
+    public IndexController(IndexService indexService, KeywordValidator keywordValidator) {
         this.indexService = indexService;
+        this.keywordValidator = keywordValidator;
+    }
+
+
+    @InitBinder
+    private void initBinder(WebDataBinder dataBinder){
+        dataBinder.setValidator(keywordValidator);
     }
 
     @GetMapping("/")
@@ -43,7 +55,9 @@ public class IndexController {
     }
 
     @GetMapping("/test")
-    Map test() {
+    Map test(@Validated String keyword, @Valid IndexParameters param) {
+
+        System.out.println(param);
         Map<String, Object> result = new HashMap<>();
 
         Test test = new Test();
