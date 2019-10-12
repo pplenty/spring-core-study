@@ -1,8 +1,10 @@
 package com.jason.springcorestudy.service;
 
+import org.springframework.beans.factory.InitializingBean;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.scheduling.annotation.AsyncResult;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.concurrent.ListenableFuture;
 
 /**
@@ -10,7 +12,7 @@ import org.springframework.util.concurrent.ListenableFuture;
  * @date : 2019-03-12
  */
 @Service
-public class IndexService {
+public class IndexService implements InitializingBean {
 
     @Async
     public ListenableFuture<String> service() {
@@ -34,5 +36,16 @@ public class IndexService {
         }
 
         return new AsyncResult<>("result");
+    }
+
+    @Transactional
+    public String transaction() {
+        return "tx";
+    }
+
+    @Override
+    public void afterPropertiesSet() throws Exception {
+        System.out.println("@@@@@@@@@@@@@@@@");
+        System.out.println();
     }
 }
