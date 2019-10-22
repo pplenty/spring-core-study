@@ -10,6 +10,7 @@ public enum Rank {
     SILVER("실버"),
     GOLD("골드"),
     BRONZE("동"),
+    BRONZE2("동2"),
     PLATINUM("pla"),
     DIAMOND("동"),
     ;
