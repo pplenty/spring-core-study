@@ -54,6 +54,16 @@ public class IndexController {
         return result;
     }
 
+    @GetMapping("/testError")
+    String error() {
+        String result = "future";
+        if (result.equals("future")) {
+            throw new UnsupportedOperationException();
+        }
+
+        return result;
+    }
+
     @RequestMapping(value = {"/testArgs/{id}"}, method = {RequestMethod.POST, RequestMethod.GET})
     long testArgs(HttpServletRequest request, HttpServletResponse response, HttpSession session,
                     @PathVariable long id, String var1, int var2, Integer var3) {
