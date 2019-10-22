@@ -11,6 +11,7 @@ public enum Rank {
     GOLD("골드"),
     BRONZE("동"),
     PLATINUM("pla"),
+    DIAMOND("동"),
     ;
 
     Rank(String korean) {
