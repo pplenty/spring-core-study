@@ -7,6 +7,7 @@ package com.jason.springcorestudy.controller;
  */
 public enum Rank {
 
+    IRON("실버"),
     SILVER("실버"),
     GOLD("골드"),
     BRONZE("동"),
