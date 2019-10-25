@@ -2,7 +2,9 @@ package com.jason.springcorestudy;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.scheduling.annotation.EnableAsync;
+import org.springframework.scheduling.annotation.EnableScheduling;
 
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletResponse;
@@ -13,6 +15,8 @@ import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
 
 @EnableAsync
+@EnableAspectJAutoProxy
+@EnableScheduling
 @SpringBootApplication
 public class SpringCoreStudyApplication {
 	public static void main(String[] args) {
