@@ -33,13 +33,13 @@ import java.util.stream.Stream;
 @RestController
 public class IndexController {
 
-    private final IndexService indexService;
-    private final KeywordValidator keywordValidator;
-
-    public IndexController(IndexService indexService, KeywordValidator keywordValidator) {
-        this.indexService = indexService;
-        this.keywordValidator = keywordValidator;
-    }
+//    private final IndexService indexService;
+//    private final KeywordValidator keywordValidator;
+//
+//    public IndexController(IndexService indexService, KeywordValidator keywordValidator) {
+//        this.indexService = indexService;
+//        this.keywordValidator = keywordValidator;
+//    }
 
 
 //    @InitBinder
