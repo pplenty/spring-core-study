@@ -10,7 +10,8 @@ import javax.validation.ConstraintViolation;
 import javax.validation.Validation;
 import javax.validation.Validator;
 import javax.validation.ValidatorFactory;
-import java.util.Set;
+import java.util.*;
+import java.util.stream.Collectors;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -71,5 +72,17 @@ public class ValidatorTest {
 
         assertThat(constraintViolations).hasSize(4);
 
+    }
+
+    @Test
+    public void name() {
+        List<Integer> list = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 1, 2, 3, 4);
+        System.out.println(list.size());
+        List<Integer> list2 = list.stream()
+                .limit(20)
+                .sorted(Comparator.comparingInt(Object::hashCode).reversed())
+                .collect(Collectors.toList());
+        System.out.println(list2);
+        System.out.println(list2.size());
     }
 }
