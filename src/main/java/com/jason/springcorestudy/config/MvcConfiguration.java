@@ -3,6 +3,7 @@ package com.jason.springcorestudy.config;
 import com.jason.springcorestudy.interceptor.HomeInterceptor;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
 /**
@@ -10,7 +11,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
  * @since 2019 09 20
  */
 @Configuration
-public class MvcConfiguration extends WebMvcConfigurerAdapter {
+public class MvcConfiguration extends WebMvcConfigurationSupport {
     public MvcConfiguration() {
         System.out.println("@@@MvcConfiguration@@@@@@@@@@@@");
     }
