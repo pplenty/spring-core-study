@@ -1,7 +1,10 @@
 package com.jason.springcorestudy.config;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.jason.springcorestudy.interceptor.HomeInterceptor;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Scope;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
@@ -22,6 +25,18 @@ public class MvcConfiguration extends WebMvcConfigurationSupport {
         System.out.println("@@@addadaddaad@@@@@@@@@@@@");
         registry.addInterceptor(new HomeInterceptor())
                 .addPathPatterns("/*");
+    }
+
+    @Bean
+    @Scope("prototype")
+    public ObjectMapper prototypeMapper(ObjectMapper singleMapper) {
+        System.out.println(singleMapper);
+        return new ObjectMapper();
+    }
+
+    @Bean
+    public ObjectMapper singleMapper() {
+        return new ObjectMapper();
     }
 }
 
