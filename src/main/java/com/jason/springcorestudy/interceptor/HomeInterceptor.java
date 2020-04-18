@@ -20,6 +20,7 @@ public class HomeInterceptor extends HandlerInterceptorAdapter {
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         logger.debug("HomeInterceptor.preHandle: {}", handler);
         return super.preHandle(request, response, handler);
+//        return false;
     }
 
     @Override

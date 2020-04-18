@@ -24,7 +24,7 @@ public class MvcConfiguration extends WebMvcConfigurationSupport {
 
         System.out.println("@@@addadaddaad@@@@@@@@@@@@");
         registry.addInterceptor(new HomeInterceptor())
-                .addPathPatterns("/*");
+                .addPathPatterns("/**/*");
     }
 
     @Bean

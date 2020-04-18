@@ -41,6 +41,7 @@ public class DumpController implements ApplicationContextAware {
     @GetMapping("/dump/context")
     public String context(String scope) {
         if ("prototype".equals(scope)) {
+            prototypeMapper.getFactory();
             System.out.println(context.getBean("prototypeMapper"));
         } else {
             System.out.println(context.getBean("singleMapper"));
