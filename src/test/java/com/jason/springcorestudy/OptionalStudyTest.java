@@ -1,13 +1,12 @@
 package com.jason.springcorestudy;
 
 import lombok.extern.slf4j.Slf4j;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.*;
 import java.util.stream.Collectors;
 
-import static org.hamcrest.Matchers.is;
-import static org.junit.Assert.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 
 
 /**
@@ -29,7 +28,7 @@ public class OptionalStudyTest {
                 .orElse("null");
 
         log.debug("{}", value);
-        assertThat(value, is("null"));
+        assertThat(value).isEqualTo("null");
 
         String value2 = Optional.ofNullable(map)
                 .map(parentMap -> parentMap.get("2"))//null
@@ -37,7 +36,7 @@ public class OptionalStudyTest {
                 .orElse("null");
 
         log.debug("{}", value2);
-        assertThat(value2, is("null"));
+        assertThat(value2).isEqualTo("null");
     }
 
     @Test
@@ -49,13 +48,13 @@ public class OptionalStudyTest {
                 .collect(Collectors.toList());
 
         log.debug("{}", sortedScore);
-        assertThat(sortedScore.get(0), is(-1));
+        assertThat(sortedScore.get(0)).isEqualTo(-1);
 
         List<Integer> reversedScore = scores.stream()
                 .sorted(Comparator.comparingInt(Object::hashCode).reversed())
                 .collect(Collectors.toList());
 
         log.debug("{}", reversedScore);
-        assertThat(reversedScore.get(sortedScore.size() - 1), is(-1));
+        assertThat(reversedScore.get(sortedScore.size() - 1)).isEqualTo(-1);
     }
 }

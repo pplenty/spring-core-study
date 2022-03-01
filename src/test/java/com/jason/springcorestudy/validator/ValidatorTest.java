@@ -3,8 +3,8 @@ package com.jason.springcorestudy.validator;
 import com.jason.springcorestudy.validator.dto.Person;
 import com.jason.springcorestudy.validator.dto.PersonGroups;
 import lombok.extern.slf4j.Slf4j;
-import org.junit.BeforeClass;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
 
 import javax.validation.ConstraintViolation;
 import javax.validation.Validation;
@@ -24,7 +24,7 @@ public class ValidatorTest {
     private static ValidatorFactory factory;
     private static Validator validator;
 
-    @BeforeClass
+    @BeforeAll
     public static void init() {
         factory = Validation.buildDefaultValidatorFactory();
         validator = factory.getValidator();
