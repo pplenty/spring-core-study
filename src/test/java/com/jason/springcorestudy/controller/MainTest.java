@@ -16,6 +16,6 @@ public class MainTest {
 
     @Test
     public void merge() {
-        System.out.println("commit 1");
+        System.out.println("commit 2");
     }
 }
