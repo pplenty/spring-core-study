@@ -8,4 +8,9 @@ public class MainTest {
     public void name() {
         System.out.println("test master2");
     }
+
+    @Test
+    public void rebase() {
+        System.out.println("rebase 1");
+    }
 }
