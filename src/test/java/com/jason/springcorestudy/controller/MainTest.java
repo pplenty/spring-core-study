@@ -11,6 +11,6 @@ public class MainTest {
 
     @Test
     public void rebase() {
-        System.out.println("rebase 1");
+        System.out.println("rebase 2");
     }
 }
