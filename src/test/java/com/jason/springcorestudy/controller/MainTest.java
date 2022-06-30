@@ -13,4 +13,9 @@ public class MainTest {
     public void rebase() {
         System.out.println("rebase 3");
     }
+
+    @Test
+    public void merge() {
+        System.out.println("commit 2");
+    }
 }
