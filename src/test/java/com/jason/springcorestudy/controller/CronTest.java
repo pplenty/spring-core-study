@@ -8,7 +8,7 @@ public class CronTest {
 
 	@Test
 	public void contextLoads() {
-		System.out.println("squash1");
+		System.out.println("squash2");
 	}
 
 }
