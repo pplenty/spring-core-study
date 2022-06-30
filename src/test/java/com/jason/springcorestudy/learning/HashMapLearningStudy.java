@@ -65,7 +65,6 @@ public class HashMapLearningStudy {
         System.out.println("tableSizeFor(157) : " + tableSizeFor(157));
         System.out.println("tableSizeFor(256) : " + tableSizeFor(256));
         System.out.println("tableSizeFor(257) : " + tableSizeFor(257));
-        System.out.println("tableSizeFor(258) : " + tableSizeFor(258));
     }
 
     private static int tableSizeFor(int c) {
